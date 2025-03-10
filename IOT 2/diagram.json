@@ -1,0 +1,38 @@
+{
+    "version": 1,
+    "author": "Anonymous maker",
+    "editor": "wokwi",
+    "parts": [
+      { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": -4.76, "attrs": {} },
+      { "type": "wokwi-dht22", "id": "dht1", "top": -66.9, "left": 129, "attrs": {} },
+      {
+        "type": "wokwi-photoresistor-sensor",
+        "id": "ldr1",
+        "top": -16,
+        "left": -200.8,
+        "attrs": {}
+      },
+      {
+        "type": "board-ssd1306",
+        "id": "oled1",
+        "top": 147.14,
+        "left": 134.63,
+        "attrs": { "i2cAddress": "0x3c" }
+      }
+    ],
+    "connections": [
+      [ "esp:TX", "$serialMonitor:RX", "", [] ],
+      [ "esp:RX", "$serialMonitor:TX", "", [] ],
+      [ "dht1:VCC", "esp:3V3", "blue", [ "v0" ] ],
+      [ "dht1:SDA", "esp:4", "magenta", [ "v0" ] ],
+      [ "dht1:GND", "esp:GND.2", "#8f4814", [ "v0" ] ],
+      [ "ldr1:GND", "esp:GND.1", "gold", [ "h19.2", "v143.6" ] ],
+      [ "ldr1:VCC", "esp:3V3", "limegreen", [ "h0" ] ],
+      [ "ldr1:AO", "esp:34", "gray", [ "h0" ] ],
+      [ "oled1:GND", "esp:GND.2", "violet", [ "v-38.4", "h-38.4", "v-86.4" ] ],
+      [ "oled1:VCC", "esp:3V3", "red", [ "v-172.8", "h-182.4" ] ],
+      [ "oled1:SCL", "esp:22", "green", [ "v0" ] ],
+      [ "oled1:SDA", "esp:21", "cyan", [ "v0" ] ]
+    ],
+    "dependencies": {}
+  }
