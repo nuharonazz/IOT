@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "author": "Ona",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp32", "top": 0, "left": 0, "attrs": {} },
+    { "type": "wokwi-lcd1602", "id": "lcd", "top": 50, "left": 200, "attrs": { "pins": "i2c" } },
+    { "type": "wokwi-pushbutton", "id": "btnNext", "top": 200, "left": 0, "attrs": { "color": "green", "label": "Next" } },
+    { "type": "wokwi-pushbutton", "id": "btnPrev", "top": 280, "left": 0, "attrs": { "color": "red", "label": "Prev" } }
+  ],
+  "connections": [
+    [ "lcd:SCL", "esp32:D22", "green", [ "h-100", "v0" ] ],
+    [ "lcd:SDA", "esp32:D21", "green", [ "h-90", "v0" ] ],
+    [ "lcd:VCC", "esp32:3V3", "red", [ "h-80", "v0" ] ],
+    [ "lcd:GND", "esp32:GND.1", "black", [ "h-70", "v0" ] ],
+    [ "btnNext:1.l", "esp32:D18", "blue", [ "h-20", "v-100" ] ],
+    [ "btnNext:2.r", "esp32:GND.1", "black", [ "h20", "v-100" ] ],
+    [ "btnPrev:1.l", "esp32:D19", "blue", [ "h-20", "v-100" ] ],
+    [ "btnPrev:2.r", "esp32:GND.1", "black", [ "h20", "v-100" ] ]
+  ],
+  "dependencies": {}
+}
