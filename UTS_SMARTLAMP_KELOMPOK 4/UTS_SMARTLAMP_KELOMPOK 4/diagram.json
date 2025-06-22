@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "author": "Rifcha Sya'bani Fatullah",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-pir-motion-sensor",
+      "id": "pir1",
+      "top": -72.8,
+      "left": -160.98,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": 21.87,
+      "left": -48.87,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-photoresistor-sensor",
+      "id": "ldr1",
+      "top": 176,
+      "left": -354.4,
+      "attrs": {}
+    },
+    {
+      "type": "resistor",
+      "id": "resistor1",
+      "top": 21.87,
+      "left": -88.87,
+      "attrs": { "ohms": "220000" }
+    },
+    { "type": "board-esp32-devkit-c-v4", "id": "esp1", "top": -9.6, "left": 139.24, "attrs": {} },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 42.35,
+      "left": 9.6,
+      "attrs": { "value": "220000" }
+    }
+  ],
+  "connections": [
+    [ "pir1:VCC", "esp1:5V", "red", [ "v0" ] ],
+    [ "pir1:OUT", "esp1:15", "green", [ "v220.8", "h383.86", "v-76.8" ] ],
+    [ "pir1:GND", "esp1:GND.1", "magenta", [ "v0" ] ],
+    [ "ldr1:VCC", "esp1:3V3", "blue", [ "v-19.2", "h288", "v-153.6" ] ],
+    [ "ldr1:GND", "esp1:GND.1", "yellow", [ "h259.2", "v-58" ] ],
+    [ "ldr1:AO", "esp1:33", "white", [ "h230.4", "v-135.1" ] ],
+    [ "resistor1:1", "esp1:13", "green", [ "v0" ] ],
+    [ "resistor1:2", "led1:A", "green", [ "h0" ] ],
+    [ "led1:C", "esp1:GND.1", "black", [ "v60.93", "h178.67", "v19.2" ] ],
+    [ "r1:1", "led1:A", "green", [ "v19.2", "h-28.8" ] ],
+    [ "r1:2", "esp1:13", "green", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
