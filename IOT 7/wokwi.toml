@@ -1,0 +1,39 @@
+[wokwi]
+version = 1
+firmware = ".pio/build/esp32doit-devkit-v1/firmware.bin"
+elf = ".pio/build/esp32doit-devkit-v1/firmware.elf"
+license = "JnU9NDIzMjg2OTE1NzA1NDU3NjY1Jm49bnVoYXJvbmF6eiU0MGdtYWlsLmNvbSZlPW51aGFyb25henolNDBnbWFpbC5jb20meD0yMDI1MDQyNgAlzVpfMlWL9JqrQZbcMuH7cYDSRCGCLnwPWo0q_SgcBoxq7CjwBi_P4B02o38trnlHVQC5rTyqf3VApr7EVORBAHwg_P_P6o6p4JJ9uj_S_P2QR_PWmqWF2xY_SpX_PwoHxXWR5Fj8m_PkqNr8So2_SlanCbXYUwTxwnJc6TqRtBk5bj1_P_SO98l6FJo_Ss_SIev5OMZWh0icXE_PRXqGT1Ng7pH8xqt5ybg_SsmyM_SEDq_S3HMD63ZB_S_S7ZGNV_SvF_S5xxfBU_SZmrWxQHX7p4hAGmJyA9GsMw9DCIl1f2aXuJkOBzKk7CFGQ_S_PLw79aRnkPPKOgSocyRCy3lk9CwRol0_PwUEFt0UutLYsKp"
+
+[net.allowlist]
+domains = ["api.openweathermap.org"]
+
+[simulation]
+    [[simulation.devices]]
+    type = "wokwi-esp32-devkit-v1"
+    id = "esp"
+
+    [[simulation.devices]]
+    type = "wokwi-dht22"
+    id = "dht1"
+    attrs.pins.SDA = "15"
+    attrs.pins.VCC = "3V3"
+    attrs.pins.GND = "GND"
+
+    [[simulation.devices]]
+    type = "wokwi-led"
+    id = "led1"
+    attrs.color = "red"
+    attrs.pins.A = "2"
+    attrs.pins.C = "GND"
+
+    [[simulation.devices]]
+    type = "wokwi-button"
+    id = "btn1"
+    attrs.pins.2 = "4"  # BUTTON_PIN di kode
+    attrs.pins.1 = "GND"
+
+    [[simulation.devices]]
+    type = "wokwi-oled-i2c"
+    id = "oled1"
+    attrs.pins.SDA = "21"
+    attrs.pins.SCL = "22"
